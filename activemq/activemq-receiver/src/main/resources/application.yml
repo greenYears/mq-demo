@@ -1,0 +1,10 @@
+server:
+  port: 8081
+
+my:
+  activemq:
+    username: admin
+    password: admin
+    brokerURL: tcp://192.168.150.133:61617
+logging:
+  file: ./log/activemq/receiver.log

@@ -1,0 +1,92 @@
+server:
+  port: 8084
+
+logging:
+  file: ./log/rabbitmq/sender.log
+my:
+  rabbitmq:
+    hello:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name: hello.queue
+    direct:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name: demo.direct.queue
+      exchange-name: demo.direct
+    topic:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name: demo.topic.queue
+      exchange-name: demo.topic
+      routing-key: demo.routing.msg
+    topic2:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name:  demo.topic.queue2
+      exchange-name: demo.topic
+      routing-key: demo.routing.#
+    fanout:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name:  demo.fanout.queue
+      exchange-name: demo.fanout
+      routing-key: demo.routing.msg
+    fanout2:
+      client:
+        host: 192.168.150.132
+        username: admin
+        password: admin
+        port: 5673
+        virtual-host: demo.mq
+      endpoint-name:  demo.fanout.queue2
+      exchange-name: demo.fanout
+      routing-key: demo.routing.#
+    headers:
+      client:
+#        host: 192.168.150.132
+        host: localhost
+        username: admin
+        password: admin
+#        port: 5673
+        port: 5672
+        virtual-host: demo.mq
+      endpoint-name:  demo.headers.queue
+      exchange-name: demo.headers
+      headers-properties:
+        x-match: all
+        type: token
+        role: guest
+    headers2:
+      client:
+        host: localhost
+        username: admin
+        password: admin
+        port: 5672
+        virtual-host: demo.mq
+      endpoint-name:  demo.headers.queue2
+      exchange-name: demo.headers
+      headers-properties:
+        x-match: any
+        type: token
+        role: system
